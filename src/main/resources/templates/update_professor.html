@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Professor Management System</title>
+<link rel="stylesheet" 
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h1>Professor Management System</h1>
+		<hr>
+		<h2>Update Professor</h2>
+		<form action="#" th:action="@{/saveProfessor}" th:object = "${professor}" method="post">
+			<input type="hidden" th:field = "*{id}" />
+			<input type="text" th:field = "*{name}" class="form-control mb-4 col-4">
+			<input type="text" th:field = "*{lastName}" class="form-control mb-4 col-4">
+			<input type="text" th:field = "*{dni}" class="form-control mb-4 col-4">
+			<select th:field = "*{active}" class="form-control mb-4 col-4">
+				<option th:value="Yes" th:text="Yes"></option>
+				<option th:value="No" th:text="No"></option>
+			</select>
+			
+			<button type="submit" class="btn btn-info col-2">Update Professor</button>
+		
+		</form>
+		
+		<hr>
+		
+		<a th:href="@{/showListProfessors}">Go back</a>
+		
+	</div>
+</body>
+</html>

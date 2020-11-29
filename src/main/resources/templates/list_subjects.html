@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Subject Management System</title>
+<link rel="stylesheet" 
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container my-2">
+	<h1>Subjects List</h1>
+	<a th:href="@{/showNewSubjectForm}" class="btn btn-primary btn-sm mb-3" style="color: white">Add Subject</a>
+		<table border="1" class = "table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Schedule</th>
+					<th>Professor</th>
+					<th>Max Students</th>
+					<th>Description</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="subject : ${listSubjects}">
+					<td th:text="${subject.name}"></td>
+					<td th:text="${subject.schedule}"></td>
+					<td th:text="${subject.professor.name}"></td>
+					<td th:text="${subject.maxStudents}"></td>
+					<td th:text="${subject.description}"></td>
+					<td>
+					<a th:href="@{/showFormForSubjectUpdate/{id}(id=${subject.id})}" class="btn btn-success">Update</a>
+					<a th:href="@{/deleteSubject/{id}(id=${subject.id})}" class="btn btn-danger">Delete</a>
+					</td>					
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/}">Go back</a>
+	</div>
+</body>
+</html>
