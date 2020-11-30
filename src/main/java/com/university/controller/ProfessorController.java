@@ -39,7 +39,7 @@ public class ProfessorController {
 	}
 	
 	@GetMapping("/showFormForProfessorUpdate/{id}")
-	public String showFormForUpdate(@PathVariable (value = "id") int id, Model model) {
+	public String showFormForProfessorUpdate(@PathVariable (value = "id") int id, Model model) {
 		//get professor from the service
 		Professor professor = service.getProfessor(id);
 		
