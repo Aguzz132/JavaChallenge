@@ -20,6 +20,7 @@ Actions based on the role of the user:
     1) Login.
     2) Add new courses.
     3) Add new professors.
+  
   Student User:
     1) Register/Login
     2) Enroll/Unenrolled in courses.
