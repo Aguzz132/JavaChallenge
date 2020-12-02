@@ -20,10 +20,6 @@ public class CourseServiceImpl implements CourseService{
 		return repository.findAll();
 	}
 	
-//	@Override
-//	public List<Course> getCourseAvailable() {
-//		
-//	}
 
 	@Override
 	public void saveCourse(Course course) {
@@ -51,11 +47,5 @@ public class CourseServiceImpl implements CourseService{
 		
 	}
 
-//	@Override
-//	public List<Course> getCourseAvailable() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-	
 
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Sign In</title>
+<link rel="stylesheet" 
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container my-2">
+		<div class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}"></div>		
+		<div class="alert alert-danger" role="alert" th:if="${param.error}">
+			The Dni or password is incorrect!
+		</div>
+		<div class="alert alert-info" role="alert" th:if="${param.logout}">
+			You have successfully logged out!
+		</div>
+		<form th:action="@{/login}" method="post">
+			<h1 class="mb-3 ">Welcome to Alkemy University</h1>
+			<hr>
+			<label for="userName" class="sr-only">DNI</label>
+			<input type="text" id="userName" name="userName" class="form-control mb-4 col-4" placeholder="User" required autofocus>
+			
+			<label for="password" class="sr-only">Legajo</label>
+			<input type="password" id="password" name="password" class="form-control mb-4 col-4" placeholder="Password" required autofocus>
+			
+			<button class="btn btn-info col-2" type="submit">Log In</button>
+			<hr>
+			<div class="">Don't have an account? <a th:href="@{/signup}">Create an account</a></div>
+		</form>
+	</div>
+</body>
+</html>

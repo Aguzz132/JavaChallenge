@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Sign Up</title>
+<link rel="stylesheet" 
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container my-2">
+		<form class="form-horizontal" role="form" method="post" th:action="@{/signup}" th:object="${user}">
+		<div class="alert alert-danger" role="alert" th:if="${msg}" th:utext="${msg}"></div>				
+			<div>
+				<h1>Register User</h1>
+				<hr>
+			</div>
+			<div>
+				<input type="text" th:field="*{firstName}" class="form-control mb-4 col-4" id="firstname" placeholder="First name" required autofocus>
+			</div>
+			<div>
+				<input type="text" th:field="*{lastName}" class="form-control mb-4 col-4" id="lastname" placeholder="Last name" required autofocus>
+			</div>
+			<div>
+				<input type="text" th:field="*{userName}" class="form-control mb-4 col-4" id="dni" placeholder="Dni (username)" required autofocus>
+			</div>
+			<div>
+				<input type="password" th:field="*{password}" class="form-control mb-4 col-4" id="legajo" placeholder="Legajo (password)" required autofocus>
+			</div>
+			<div>
+				<button type="submit" class="btn btn-success col-2">Register</button>
+			</div>
+		</form>
+		<hr>
+		<a th:href="@{/login}">Go back</a>
+	</div>
+</body>
+</html>

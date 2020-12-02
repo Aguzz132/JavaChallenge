@@ -10,9 +10,10 @@
 </head>
 <body>
 	<div class="container my-2">
-	<h1>Courses List</h1>
-	<a th:href="@{/showNewCourseForm}" class="btn btn-primary btn-sm mb-3" style="color: white">Add Course</a>
+	<h1>Course Description</h1>
+	<hr>
 		<table border="1" class = "table table-striped table-responsive-md">
+		
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -20,24 +21,19 @@
 					<th>Professor</th>
 					<th>Max Students</th>
 					<th>Description</th>
-					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="course : ${listCourses}">
-					<td th:text="${course.name}"></td>
-					<td th:text="${course.schedule}"></td>
-					<td th:text="${course.professor.name}"></td>
-					<td th:text="${course.maxStudents}"></td>
-					<td th:text="${course.description}"></td>
-					<td>
-					<a th:href="@{/showFormForCourseUpdate/{id}(id=${course.id})}" class="btn btn-success">Update</a>
-					<a th:href="@{/deleteCourse/{id}(id=${course.id})}" class="btn btn-danger">Delete</a>
-					</td>					
+				<tr th:object = "${course}">
+					<td th:text="*{name}"></td>
+					<td th:text="*{schedule}"></td>
+					<td th:text="*{professor.name}"></td>
+					<td th:text="*{maxStudents}"></td>
+					<td th:text="*{description}"></td>				
 				</tr>
 			</tbody>
 		</table>
-		<a th:href="@{/index}">Go back</a>
+		<a th:href="@{/showListCoursesToEnroll}">Go back</a>
 	</div>
 </body>
 </html>

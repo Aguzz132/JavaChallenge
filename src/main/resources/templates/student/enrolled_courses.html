@@ -10,8 +10,9 @@
 </head>
 <body>
 	<div class="container my-2">
-	<h1>Courses List</h1>
-	<a th:href="@{/showNewCourseForm}" class="btn btn-primary btn-sm mb-3" style="color: white">Add Course</a>
+	<div class="alert alert-success" role="alert" th:if="${msg}" th:utext="${msg}"></div>
+	<h1>Enrolled Courses</h1>
+	<hr>
 		<table border="1" class = "table table-striped table-responsive-md">
 			<thead>
 				<tr>
@@ -24,15 +25,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="course : ${listCourses}">
+				<tr th:each="course : ${listEnrolledCourses}">
 					<td th:text="${course.name}"></td>
 					<td th:text="${course.schedule}"></td>
 					<td th:text="${course.professor.name}"></td>
 					<td th:text="${course.maxStudents}"></td>
 					<td th:text="${course.description}"></td>
 					<td>
-					<a th:href="@{/showFormForCourseUpdate/{id}(id=${course.id})}" class="btn btn-success">Update</a>
-					<a th:href="@{/deleteCourse/{id}(id=${course.id})}" class="btn btn-danger">Delete</a>
+					<a th:href="@{/unenrollCourse/{id}(id=${course.id})}" class="btn btn-danger">Unenroll</a>
 					</td>					
 				</tr>
 			</tbody>

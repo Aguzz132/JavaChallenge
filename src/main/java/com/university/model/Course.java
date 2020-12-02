@@ -1,5 +1,7 @@
 package com.university.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -34,6 +37,9 @@ public class Course {
 	@Column(name = "description")
 	private String description;
 
+	@ManyToMany(mappedBy = "courses")
+	private List<User> users;
+	
 	public int getId() {
 		return id;
 	}

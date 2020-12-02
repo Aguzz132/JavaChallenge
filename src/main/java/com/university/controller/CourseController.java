@@ -28,11 +28,6 @@ public class CourseController {
 		return "list_courses";
 	}
 	
-	@GetMapping("/showListEnrollCourses")
-	public String viewListProfessors(Model model) {
-		model.addAttribute("listCourses", courseService.getAllCourses());
-		return "list_courses";
-	}
 	
 	@GetMapping("/showNewCourseForm")
 	public String showNewCourseForm(Model model) {
@@ -69,4 +64,9 @@ public class CourseController {
 		return "redirect:/showListCourses";
 	}
 	
+	@GetMapping("/showDescriptionCourse/{id}")
+	public String viewListEnrollCourses(@PathVariable (value = "id") int id, Model model) {
+		model.addAttribute("course", courseService.getCourse(id));
+		return "student/course_description";
+	}
 }
