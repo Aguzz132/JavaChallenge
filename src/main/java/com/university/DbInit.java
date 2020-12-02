@@ -2,8 +2,6 @@ package com.university;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Set;
-
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;

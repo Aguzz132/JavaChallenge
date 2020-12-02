@@ -10,6 +10,8 @@
 </head>
 <body>
 	<div class="container my-2">
+	<div class="alert alert-success" role="alert" th:if="${msgRegister}" th:utext="${msgRegister}"></div>
+	<div class="alert alert-danger" role="alert" th:if="${msgDeleted}" th:utext="${msgDeleted}"></div>
 	<h1>Professors List</h1>
 	<a th:href="@{/showNewProfessorForm}" class="btn btn-primary btn-sm mb-3" style="color: white">Add Professor</a>
 		<table border="1" class = "table table-striped table-responsive-md">

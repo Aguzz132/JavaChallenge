@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Value;
+
 @Entity
 @Table(name = "courses")
 public class Course {
@@ -25,6 +27,7 @@ public class Course {
 	private String name;
 	
 	@Column(name = "schedule")
+	@Value("#{null}")
 	private int schedule;
 	
 	@ManyToOne(optional = false, fetch = FetchType.EAGER)
@@ -32,6 +35,7 @@ public class Course {
 	private Professor professor;
 	
 	@Column(name = "max_students")
+	@Value("#{null}")
 	private int maxStudents;
 	
 	@Column(name = "description")

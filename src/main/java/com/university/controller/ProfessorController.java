@@ -32,10 +32,12 @@ public class ProfessorController {
 	}
 	
 	@PostMapping("/saveProfessor")
-	public String saveProfessor(@ModelAttribute("professor") Professor professor) {
+	public String saveProfessor(@ModelAttribute("professor") Professor professor, Model model) {
 		//save professor to database
 		service.saveProfessor(professor);
-		return "redirect:/showListProfessors";
+		model.addAttribute("msgRegister", "Professor \""+ professor.getName() + " " + professor.getLastName() + "\" has been registered succesfully!");
+		model.addAttribute("listProfessors", service.getAllProfessors());
+		return "list_professors";
 	}
 	
 	@GetMapping("/showFormForProfessorUpdate/{id}")
@@ -50,10 +52,12 @@ public class ProfessorController {
 	}
 	
 	@GetMapping("/deleteProfessor/{id}")
-	public String deleteProfessor(@PathVariable (value = "id") int id) {
-		
+	public String deleteProfessor(@PathVariable (value = "id") int id, Model model) {
+		Professor professor = service.getProfessor(id);
 		service.deleteProfessor(id);
 		
-		return "redirect:/showListProfessors";
+		model.addAttribute("msgDeleted", "Professor \""+ professor.getName() + " " + professor.getLastName() + "\" has been deleted succesfully!");
+		model.addAttribute("listProfessors", service.getAllProfessors());
+		return "list_professors";
 	}
 }
