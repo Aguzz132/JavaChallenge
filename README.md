@@ -36,7 +36,7 @@ To run the program:
   2) Run as
   3) Spring Boot App
 
-When you run the program for the first time it will create all the tables neccesary and a Admin User with username: "admin" and password: "admin".
+When you run the program for the first time it will create all the tables necessary and a Admin User with username: "admin" and password: "admin".
 
 To use the program: Open a browser --> http://localhost:8080/
   
