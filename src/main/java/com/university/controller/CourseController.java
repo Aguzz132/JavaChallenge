@@ -25,7 +25,6 @@ public class CourseController {
 	@Autowired
 	private ProfessorService professorService;
 	
-	//Display list of professors
 	@GetMapping("/showListCourses")
 	public String viewListCourses(Model model) {
 		model.addAttribute("listCourses", courseService.getAllCourses());
@@ -61,7 +60,6 @@ public class CourseController {
 	
 	@GetMapping("/showFormForCourseUpdate/{id}")
 	public String showFormForCourseUpdate(@PathVariable (value = "id") int id, Model model) {
-		//get professor from the service
 		Course course = courseService.getCourse(id);
 		
 		//set professor as a model attribute to fill the form
